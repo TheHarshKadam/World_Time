@@ -6,62 +6,66 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   Map data = {};
-  @override
-  void initState() {
-    super.initState();
-  }
+
   @override
   Widget build(BuildContext context) {
-    data = data.isNotEmpty ? data :  ModalRoute.of(context).settings.arguments;
-    print(data);
-    String bgImg = data['isMorning'] ? 'Day.jpeg' : 'Night.jpeg';
-    Color colors = data['isMorning'] ? Colors.blue[50] : Colors.blueGrey[800];
+
+    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
+
+    // set background image
+    String bgImage = data['isMorning'] ? 'Day.jpeg' : 'Night.jpeg';
+    Color bgColor = data['isMorning'] ? Colors.blue : Colors.indigo[700];
 
     return Scaffold(
-      backgroundColor: colors,
+      backgroundColor: bgColor,
       body: SafeArea(
         child: Container(
           decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/$bgImg'), fit: BoxFit.cover)),
+            image: DecorationImage(
+              image: AssetImage('assets/$bgImage'),
+              fit: BoxFit.cover,
+            )
+          ),
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(0.0, 120.0, 0.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
             child: Column(
-              children: [
+              children: <Widget>[
                 FlatButton.icon(
                   onPressed: () async {
-                    dynamic output =
-                        await Navigator.pushNamed(context, '/location');
-                    setState(() {
-                      data = {
-                        'time': output['time'],
-                        'flag': output['flag'],
-                        'location':output['location'],
-                        'isMorning':output['isMorning'],
-                      };
-                    });
+                    dynamic output = await Navigator.pushNamed(context, '/location');
+                    if(output != null){
+                      setState(() {
+                        data = {
+                          'time': output['time'],
+                          'location': output['location'],
+                          'isMorning': output['isMorning'],
+                          'flag': output['flag']
+                        };
+                      });
+                    }
                   },
                   icon: Icon(
                     Icons.edit_location,
-                    color: Colors.grey[100],
+                    color: Colors.grey[300],
                   ),
                   label: Text(
                     'Edit Location',
                     style: TextStyle(
-                      color: Colors.grey[100],
+                      color: Colors.grey[300],
                     ),
                   ),
                 ),
                 SizedBox(height: 20.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children: <Widget>[
                     Text(
                       data['location'],
                       style: TextStyle(
-                        fontSize: 25.0,
-                        letterSpacing: 1.5,
+                        fontSize: 28.0,
+                        letterSpacing: 2.0,
                         color: Colors.white,
                       ),
                     ),
@@ -71,10 +75,10 @@ class _HomeState extends State<Home> {
                 Text(
                   data['time'],
                   style: TextStyle(
-                    fontSize: 75.0,
-                    color: Colors.white,
-                  ),
-                )
+                    fontSize: 66.0,
+                    color: Colors.white
+                  )
+                ),
               ],
             ),
           ),
