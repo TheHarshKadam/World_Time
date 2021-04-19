@@ -14,21 +14,41 @@ class _chooseLocationState extends State<chooseLocation> {
     WorldTime(url: 'Asia/Dhaka', location: 'Bangladesh', flag: 'bang.jpg'),
     WorldTime(url: 'Africa/Cairo', location: 'Egypt', flag: 'egypt.png'),
     WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
+    WorldTime(url: 'Asia/Tokyo', location: 'Japan', flag: 'japan.jpg'),
+    WorldTime(url: 'Australia/Sydney', location: 'Australia', flag: 'australia.png'),
+    WorldTime(url: 'Europe/Moscow', location: 'Russia', flag: 'russia.png'),
+    WorldTime(url: 'Asia/Hong_Kong', location: 'China', flag: 'china.png'),
+    WorldTime(url: 'Asia/Bangkok', location: 'Thailand', flag: 'thailand.png'),
+    WorldTime(url: 'Europe/Oslo', location: 'Norway', flag: 'norway.png'),
+    WorldTime(url: 'America/Sao_Paulo', location: 'Brazil', flag: 'brazil.png'),
+    WorldTime(url: 'America/Argentina/Buenos_Aires', location: 'Argentina', flag: 'argentina.png'),
+    WorldTime(url: 'America/Santiago', location: 'Chille', flag: 'chille.png'),
+    WorldTime(url: 'America/Mexico_city', location: 'Mexico', flag: 'mexico.png'),
+    WorldTime(url: 'Asia/Dubai', location: 'Saudi Arabia', flag: 'saudi.png'),
+    WorldTime(url: 'America/Havana', location: 'Cuba', flag: 'cuba.png'),
     WorldTime(url: 'Africa/Nairobi', location: 'Kenya', flag: 'kenya.png'),
     WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
     WorldTime(url: 'Asia/Seoul', location: 'Korea', flag: 'south_korea.png'),
-    WorldTime(
-        url: 'Asia/Jakarta', location: 'Indonesia', flag: 'indonesia.png'),
+    WorldTime(url: 'Asia/Jakarta', location: 'Indonesia', flag: 'indonesia.png'),
   ];
+  
+  
   void updateTime(index) async {
     WorldTime instance = locations[index];
     await instance.getTime();
-    Navigator.pop(context, {
+    if(mounted){
+      Navigator.pop(context, {
       'location': instance.location,
       'time': instance.time,
       'flag': instance.flag,
       'isMorning': instance.isMorning,
     });
+    }
+  }
+
+   @override
+  void initState() {
+    super.initState();
   }
 
   @override
@@ -64,3 +84,4 @@ class _chooseLocationState extends State<chooseLocation> {
         ));
   }
 }
+
