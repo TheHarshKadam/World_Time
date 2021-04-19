@@ -13,9 +13,9 @@ class _HomeState extends State<Home> {
     data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
 
     String bgImage = data['isMorning'] ? 'Day.jpeg' : 'Night.jpeg';
-    Color bgColor = data['isMorning'] ? Colors.blueGrey[900] : Colors.blue[100];
-    
-    return Scaffold(
+   Color bgColor = data['isMorning'] ? Colors.blue[100] : Colors.blueGrey[900];
+
+        return Scaffold(
       backgroundColor: bgColor,
       body: SafeArea(
         child: Container(
