@@ -1,6 +1,6 @@
 # World Time App
 
-A new Flutter project.
+Application which shows Time in different countries
 
 ## Getting Started
 
