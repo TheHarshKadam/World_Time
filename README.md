@@ -8,7 +8,7 @@ Application which shows Time in different countries
 ### Background Images 
 - [WallHub Pro](https://play.google.com/store/apps/details?id=com.Hastamev.WallHubPro&hl=en)
 
-## Getting Started
+## Get Started
 
 A few resources to get you started if this is your first Flutter project:
 
