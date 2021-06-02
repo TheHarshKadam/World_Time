@@ -22,3 +22,7 @@ samples, guidance on mobile development, and a full API reference.
 ### Credits
 
 - [Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg)
+
+### NOTE
+
+It is not recommended that this [API](http://worldtimeapi.org/pages/faqs#commercial-apps) be used for commercial applications. The API can go down from time-to-time, for relatively long periods.
