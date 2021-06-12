@@ -1,6 +1,6 @@
 # World Time App
 
-Application which shows Time in different countries
+Application which shows time in different countries.
 
 <img src= "https://user-images.githubusercontent.com/77354987/121788902-fcde1580-cbee-11eb-9082-48e31e689b7e.gif" width = "380" height = "700">
 
